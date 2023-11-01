@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+
+import Main from "./routes/Main";
+import ResultPage from "./routes/ResultPage";
+import TestPage from "./routes/TestPage";
 
 function App() {
+  const [Ei, setEI] = useState(0);
+  const [SN, setSN] = useState(0);
+  const [TF, setRF] = useState(0);
+  const [JP, setJP] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/testpage" element={<TestPage />} />
+        <Route path="/resultpage" element={<ResultPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
