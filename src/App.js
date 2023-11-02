@@ -11,6 +11,7 @@ function App() {
   const [TF, setTF] = useState(0);
   const [JP, setJP] = useState(0);
 
+  const [datas, setDatas] = useState();
   const [MBTI, setMBTI] = useState();
 
   return (
@@ -31,6 +32,9 @@ function App() {
               setTF={setTF}
               setJP={setJP}
               MBTI={MBTI}
+              setMBTI={setMBTI}
+              setDatas={setDatas}
+              datas={datas}
               EI={EI}
               SN={SN}
               TF={TF}
@@ -38,7 +42,7 @@ function App() {
             />
           }
         />
-        <Route path="/resultpage" element={<ResultPage />} />
+        <Route path="/resultpage" element={<ResultPage MBTI={MBTI} />} />
       </Routes>
     </BrowserRouter>
   );

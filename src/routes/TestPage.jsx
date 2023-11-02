@@ -1,7 +1,33 @@
 import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function TestPage(props) {
+  useEffect(() => {
+    let data = [];
+    if (props.EI > 0) {
+      data.push("E");
+    } else if (props.EI < 0) {
+      data.push("I");
+    }
+    if (props.SN > 0) {
+      data.push("S");
+    } else if (props.SN < 0) {
+      data.push("N");
+    }
+    if (props.TF > 0) {
+      data.push("T");
+    } else if (props.TF < 0) {
+      data.push("F");
+    }
+    if (props.JP > 0) {
+      data.push("J");
+    } else if (props.JP < 0) {
+      data.push("P");
+    }
+    props.setDatas(data.join(""));
+    props.setMBTI(props.datas);
+  }, [props.EI, props.SN, props.TF, props.JP, props.datas]);
+
   let navigate = useNavigate();
 
   const [num, setNum] = useState(1);
