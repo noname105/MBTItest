@@ -6,6 +6,8 @@ function Main(props) {
 
   return (
     <div>
+      <div>롤 MBTI 테스트</div>
+      <div>내 성격유형과 같은 롤 챔피언은 누굴까?</div>
       <button
         onClick={() => {
           navigate("/testpage");
