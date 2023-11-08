@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Main from "./routes/Main";
 import ResultPage from "./routes/ResultPage";
@@ -13,6 +13,32 @@ function App() {
 
   const [datas, setDatas] = useState();
   const [MBTI, setMBTI] = useState();
+
+  useEffect(() => {
+    let data = [];
+    if (EI > 0) {
+      data.push("E");
+    } else if (EI < 0) {
+      data.push("I");
+    }
+    if (SN > 0) {
+      data.push("S");
+    } else {
+      data.push("N");
+    }
+    if (TF > 0) {
+      data.push("T");
+    } else {
+      data.push("F");
+    }
+    if (JP > 0) {
+      data.push("J");
+    } else {
+      data.push("P");
+    }
+    setDatas(data.join(""));
+    setMBTI(datas);
+  }, [EI, SN, TF, JP, datas]);
 
   return (
     <BrowserRouter>
